@@ -4,7 +4,7 @@
 
 ## Tags 
 
-The tags, `0.13.16`, `0.13`, `latest` and `stable`, all point to the same image. The tags `0.13.13` and `0.13.15` point to the older releases of SBT.
+The tags, `0.13.16`, `0.13`, `latest` and `stable`, all point to the same image. The tags `0.12.2`, `0.12.4`, `0.13.13` and `0.13.15` point to the older releases of SBT.
 
 ## Usage
 

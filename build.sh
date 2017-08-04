@@ -3,7 +3,7 @@
 PUSH=$1
 
 # SBT Versions
-VERSIONS=(0.13.15 0.13.16)
+VERSIONS=(0.12.2 0.12.4 0.13.15 0.13.16)
 # Non-version tags
 TAGS=(0.13 latest stable)
 
