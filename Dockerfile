@@ -8,7 +8,7 @@ RUN apk add --no-cache --update \
       bash \
       wget && \
     mkdir -p /opt/sbt/bin && \
-    export SHORT_VERSION=$(echo $SBT_VERSION | sed 's/\.//g') && \
+    export SHORT_VERSION=$(echo $SBT_VERSION | sed -E 's/\.|-//g' | tr A-Z a-z) && \
     bash -c ' \
     if [[ "$SBT_VERSION" > "0.13" ]]; then \
       cd /opt && \
