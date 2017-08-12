@@ -3,9 +3,9 @@
 PUSH=$1
 
 # SBT Versions
-VERSIONS=(0.12.2 0.12.4 0.13.15 0.13.16 1.0.0-RC2)
+VERSIONS=(0.12.2 0.12.4 0.13.15 0.13.16 1.0.0)
 # Non-version tags
-TAGS=(0.13 latest stable)
+TAGS=(1 latest stable)
 
 # Images with all datasets and hence non-dataset-specific tags.
 for TAG in "${TAGS[@]}"; do

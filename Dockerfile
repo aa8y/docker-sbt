@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine
 
 MAINTAINER Arun Allamsetty <arun.allamsetty@gmail.com>
 
-ARG SBT_VERSION=0.13.16
+ARG SBT_VERSION=1.0.0
 
 RUN apk add --no-cache --update \
       bash \
@@ -12,7 +12,7 @@ RUN apk add --no-cache --update \
     bash -c ' \
     if [[ "$SBT_VERSION" > "0.13" ]]; then \
       cd /opt && \
-      if [[ "$SBT_VERSION" > "0.13.16" || "$SBT_VERSION" == "0.13.16" ]]; then \
+      if [[ "$SBT_VERSION" == "0.13.16" ]]; then \
         export SBT_URL="https://cocl.us/sbt${SHORT_VERSION}tgz"; \
       else \
         export SBT_URL="https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz"; \
