@@ -2,9 +2,9 @@
 
 [SBT](http://www.scala-sbt.org/) is the de-facto build tool used for Scala. This is a Docker image for SBT based on Alpine to get as small an image as possible.
 
-## Tags 
+## Tags
 
-The tags, `1.0.0`, `1`, `latest` and `stable`, all point to the same image. The tags `0.12.2`, `0.12.4`, `0.13.15` and `0.13.16` point to the older releases of SBT. `0.13` is a legacy tag I am not planning to build anymore.
+The tags, `1.0.0`, `1.0`, `1`, `latest` and `stable`, all point to the same image. The tags `0.12.2`, `0.12.4`, `0.13.15` and `0.13.16` point to the older releases of SBT. `0.12` and `0.13` (along with `1.0`) point to their respective latest minor releases.
 
 ## Usage
 
@@ -16,3 +16,6 @@ Or use this as your base image for your Scala code using `FROM aa8y/sbt:stable` 
 ```
 sbt.version=0.13.13
 ```
+See [this link](http://www.scala-sbt.org/0.13/docs/Basic-Def.html) for more details.
+
+When using the image as a base for another image, always cache the SBT jars by running an SBT command (eg. `sbt clean`) in the directory where the `project/build.properties` file resides, if you're using it, or anywhere if you're not. Make sure you run the command as the user you will be using SBT with, as it will download the JARs to the user's home directory.
