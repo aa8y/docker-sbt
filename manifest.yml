@@ -17,11 +17,12 @@ contexts:
       '0.13':
         version: 0.13.16
       '1.0.0':
+      '1.0.1':
       '1.0':
-        version: 1.0.0
+        version: 1.0.1
       '1':
-        version: 1.0.0
+        version: 1.0.1
       'latest':
-        version: 1.0.0
+        version: 1.0.1
       'stable':
-        version: 1.0.0
+        version: 1.0.1
