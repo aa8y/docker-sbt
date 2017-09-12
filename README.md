@@ -19,3 +19,9 @@ sbt.version=0.13.13
 See [this link](http://www.scala-sbt.org/0.13/docs/Basic-Def.html) for more details.
 
 When using the image as a base for another image, always cache the SBT jars by running an SBT command (eg. `sbt clean`) in the directory where the `project/build.properties` file resides, if you're using it, or anywhere if you're not. Make sure you run the command as the user you will be using SBT with, as it will download the JARs to the user's home directory.
+
+## FAQs
+
+###### Docker `RUN` commands used to run fine before but now I get a `Permission denied` error.
+
+I recently changed the image to use another base image which has a non-root user called `docker`. So when you use this image as the base for another, you would have to explicitly run it as `root` by running `USER root` before running any commands which would require root access.

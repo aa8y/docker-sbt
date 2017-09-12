@@ -1,12 +1,11 @@
-FROM openjdk:8-jdk-alpine
+FROM aa8y/core:jdk8
 
 MAINTAINER Arun Allamsetty <arun.allamsetty@gmail.com>
 
 ARG SBT_VERSION=1.0.1
 
-RUN apk add --no-cache --update \
-      bash \
-      wget && \
+USER root
+RUN apk add --no-cache --update wget && \
     mkdir -p /opt/sbt/bin && \
     export SHORT_VERSION=$(echo $SBT_VERSION | sed -E 's/\.|-//g' | tr A-Z a-z) && \
     bash -c ' \
@@ -19,7 +18,7 @@ RUN apk add --no-cache --update \
       fi && \
       wget -qO- ${SBT_URL} | tar -C . -xzf -; \
     else \
-      export SBT_URL="http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch//${SBT_VERSION}/sbt-launch.jar" && \
+      export SBT_URL="http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/${SBT_VERSION}/sbt-launch.jar" && \
       wget ${SBT_URL} -O /opt/sbt/bin/sbt-launch.jar && \
       echo java -Xms128M -Xmx512M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=384M \
         -jar /opt/sbt/bin/sbt-launch.jar "$@" > /opt/sbt/bin/sbt && \
@@ -29,4 +28,5 @@ RUN apk add --no-cache --update \
     apk del --purge wget && \
     rm -rf /var/cache/apk/*
 
+USER docker
 CMD ["/bin/bash"]
