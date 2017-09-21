@@ -2,7 +2,7 @@ FROM aa8y/core:jdk8
 
 MAINTAINER Arun Allamsetty <arun.allamsetty@gmail.com>
 
-ARG SBT_VERSION=1.0.1
+ARG SBT_VERSION=1.0.2
 
 USER root
 RUN apk add --no-cache --update wget && \
