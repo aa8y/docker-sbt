@@ -2,7 +2,7 @@ FROM aa8y/core:jdk8
 
 MAINTAINER Arun Allamsetty <arun.allamsetty@gmail.com>
 
-ARG SBT_VERSION=1.0.2
+ARG SBT_VERSION=1.0.3
 
 USER root
 RUN apk add --no-cache --update wget && \
@@ -10,12 +10,12 @@ RUN apk add --no-cache --update wget && \
     export SHORT_VERSION=$(echo $SBT_VERSION | sed -E 's/\.|-//g' | tr A-Z a-z) && \
     bash -c ' \
     if [[ "$SBT_VERSION" > "0.13" ]]; then \
-      cd /opt && \
-      if [[ "$SBT_VERSION" == "0.13.15" ]]; then \
-        export SBT_URL="https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz"; \
+      if [[ "$SBT_VERSION" == "0.13.16" ]]; then \
+        export SBT_URL="https://github.com/sbt/sbt/archive/v${SBT_VERSION}.tar.gz"; \
       else \
-        export SBT_URL="https://cocl.us/sbt-${SBT_VERSION}.tgz"; \
+        export SBT_URL="https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz"; \
       fi && \
+      cd /opt && \
       wget -qO- ${SBT_URL} | tar -C . -xzf -; \
     else \
       export SBT_URL="http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/${SBT_VERSION}/sbt-launch.jar" && \
