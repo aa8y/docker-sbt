@@ -7,8 +7,10 @@ ARG SBT_VERSION=1.0.3
 USER root
 RUN apk add --no-cache --update wget && \
     mkdir -p /opt/sbt/bin && \
-    export SHORT_VERSION=$(echo $SBT_VERSION | sed -E 's/\.|-//g' | tr A-Z a-z) && \
     bash -c ' \
+    if [[ "$SBT_VERSION" > "1.0.2" ]]; then \
+      apk add --no-cache bc; \
+    fi && \
     if [[ "$SBT_VERSION" > "0.13" ]]; then \
       if [[ "$SBT_VERSION" == "0.13.16" ]]; then \
         export SBT_URL="https://github.com/sbt/sbt/archive/v${SBT_VERSION}.tar.gz"; \
