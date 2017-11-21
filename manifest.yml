@@ -1,16 +1,22 @@
-defaults:
-  parameters:
-    repository: aa8y/sbt
-  templates:
-    build: docker build -t {repository}:{tag} --build-arg SBT_VERSION={version} {context}
-    push: docker push {repository}:{tag}
+parameters:
+  repository: aa8y/sbt
+templates:
+  build: docker build -t {{{repository}}}:{{tag}} --build-arg SBT_VERSION={{version}} {{context}}
+  push: docker push {{{repository}}}:{{tag}}
+  test: docker run --rm {{{repository}}}:{{tag}} sbt {{testCommand}}
 contexts:
   .:
-    key_name: version
+    parameters:
+      testCommand: sbtVersion
+    tagKeys:
+      - version
     tags:
       '0.12.2':
+        testCommand: sbt-version
       '0.12.4':
+        testCommand: sbt-version
       '0.12':
+        testCommand: sbt-version
         version: 0.12.4
       '0.13.15':
       '0.13.16':
