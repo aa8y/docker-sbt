@@ -1,5 +1,7 @@
 # Docker SBT
 
+[![Build Status](https://travis-ci.org/aa8y/docker-scala.svg?branch=master)](https://travis-ci.org/aa8y/docker-scala)
+
 [SBT](http://www.scala-sbt.org/) is the de-facto build tool used for Scala. This is a Docker image for SBT based on Alpine to get as small an image as possible.
 
 ## Tags
@@ -12,13 +14,17 @@ You can run Scala through SBT using:
 ```
 docker run --rm -it aa8y/sbt:latest sbt console
 ```
-Or use this as your base image for your Scala code using `FROM aa8y/sbt:stable` in your `Dockerfile`. Even though I've got different tags, the latest version of the image can be used for compiling code with any version of SBT by specifying the SBT version in the `project/build.properties` file where the `project` directory is in the same directory as the `src` directory for your Scala/Java sources. This is what the entry should look like for example,
+But the image is expected to be used more often as a base image for testing or packaging Scala code. While any of the tags could be used, I would recommend using `latest`, `stable` or the minor/major version tags. Using full version tags is not recommended because, such older tags maybe removed as new versions are released. Also, post version 1.0.0, SBT pulls the required SBT JARs based on the the SBT version specified in the `project/build.properties` file where the `project` directory is in the same directory as your based `build.sbt` file. This is what the entry should look like for example,
 ```
 sbt.version=0.13.13
 ```
 See [this link](http://www.scala-sbt.org/0.13/docs/Basic-Def.html) for more details.
 
-When using the image as a base for another image, always cache the SBT jars by running an SBT command (eg. `sbt clean`) in the directory where the `project/build.properties` file resides, if you're using it, or anywhere if you're not. Make sure you run the command as the user you will be using SBT with, as it will download the JARs to the user's home directory.
+Also, Docker builds an image by building layers which are cached. So if the image is built the correct way, every little change won't rebuild the complete image. See the [examples](#examples).
+
+## Examples.
+
+* [scrypto](ohttps://github.com/input-output-hk/scrypto/): The `Dockerfile` is a [good example](https://github.com/input-output-hk/scrypto/blob/master/Dockerfile) of how to cache certain image layers to avoid rebuilding the image every time. Also, the `.travis.yml` file describes [how to use](https://github.com/input-output-hk/scrypto/blob/master/.travis.yml) the Docker image for running tests.
 
 ## FAQs
 
