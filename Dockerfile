@@ -2,7 +2,7 @@ FROM aa8y/core:jdk8
 
 MAINTAINER Arun Allamsetty <arun.allamsetty@gmail.com>
 
-ARG SBT_VERSION=1.0.3
+ARG SBT_VERSION=1.0.4
 
 USER root
 RUN mkdir -p /opt/sbt/bin
