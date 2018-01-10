@@ -3,7 +3,7 @@ parameters:
 templates:
   build: docker build -t {{{repository}}}:{{tag}} --build-arg CI={{ci}} --build-arg SBT_VERSION={{version}} {{context}}
   push: docker push {{{repository}}}:{{tag}}
-  test: docker run --rm {{{repository}}}:{{tag}} sbt {{testCommand}}
+  test: docker run --rm {{{repository}}}:{{tag}} sbt {{{testCommand}}}
 contexts:
   .:
     parameters:
@@ -25,14 +25,15 @@ contexts:
         version: 0.13.16
       '1.0.3':
       '1.0.4':
+      '1.1.0':
       '1.0':
-        version: 1.0.4
+        version: 1.1.0
       '1':
-        version: 1.0.4
+        version: 1.1.0
       'latest':
-        version: 1.0.4
+        version: 1.1.0
       'stable':
-        version: 1.0.4
+        version: 1.1.0
       'ci':
         ci: true
-        version: 1.0.4
+        version: 1.1.0

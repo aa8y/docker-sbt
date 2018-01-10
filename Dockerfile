@@ -32,7 +32,9 @@ RUN apk add --no-cache --update wget && \
 
 
 RUN if [[ $CI == "true" ]]; then \
-      apk add --no-cache --update git && \
+      apk add --no-cache --update \
+        git \
+        openssh && \
       rm -rf /var/cache/apk/*; \
     fi
 
