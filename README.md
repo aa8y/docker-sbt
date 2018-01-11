@@ -6,7 +6,9 @@
 
 ## Tags
 
-The tags, `1.0.4`, `1.0`, `1`, `latest` and `stable`, all point to the same image. The tags `0.12.2`, `0.12.4`, `0.13.15`, `0.13.16` and `1.0.3` point to the older releases of SBT. `0.12` and `0.13` (along with `1.0`) point to their respective latest minor releases. I am planning to maintain a latest version and a older release for a certain version category. This basically means that for 1.0 minor release, we will keep around 1.0.3 and 1.0.4 patch releases. For people who do not update their SBT versions often, I would recommend you use the minor release tags, rather than the full release tags with the patch version (meaning use `1.0` vs `1.0.4`).
+The tags, `1.1.0`, `1.1`, `1`, `latest` and `stable`, all point to the same image. The full version tags like `0.12.4`, `0.13.16` and `1.0.4` point to the older releases of SBT. `0.12`, `0.13` and `1.0` (along with `1.1`) point to their respective latest minor releases. I am planning to maintain a latest version and a older release for a certain version category. This basically means that for 1.0 minor release, we will keep around 1.0.3 and 1.0.4 patch releases. For people who do not update their SBT versions often, I would recommend you use the minor release tags, rather than the full release tags with the patch version (meaning use `1.0` vs `1.0.4`), because those would always be available.
+
+I've added a new `ci` tag which contains `git` and `ssh` to use with CircleCI 2.0. However, I expect to add these to all images and deprecate `ci`. At that point, it would be the same as `latest`.
 
 ## Usage
 
@@ -22,9 +24,10 @@ See [this link](http://www.scala-sbt.org/0.13/docs/Basic-Def.html) for more deta
 
 Also, Docker builds an image by building layers which are cached. So if the image is built the correct way, every little change won't rebuild the complete image. See the [examples](#examples).
 
-## Examples.
+## Examples
 
-* [scrypto](ohttps://github.com/input-output-hk/scrypto/): The `Dockerfile` is a [good example](https://github.com/input-output-hk/scrypto/blob/master/Dockerfile) of how to cache certain image layers to avoid rebuilding the image every time. Also, the `.travis.yml` file describes [how to use](https://github.com/input-output-hk/scrypto/blob/master/.travis.yml) the Docker image for running tests.
+* [better-files](https://github.com/pathikrit/better-files): The `.circleci/config.yml` is an [example](https://github.com/pathikrit/better-files/blob/master/.circleci/config.yml) on how these images could be used with [CircleCI](https://circleci.com) 2.0 as it inherently supports Docker.
+* [scrypto](https://github.com/input-output-hk/scrypto/): The `Dockerfile` is a [good example](https://github.com/input-output-hk/scrypto/blob/master/Dockerfile) of how to cache certain image layers to avoid rebuilding the image every time. Also, the `.travis.yml` file describes [how to use](https://github.com/input-output-hk/scrypto/blob/master/.travis.yml) the Docker image for running tests.
 
 ## FAQs
 
