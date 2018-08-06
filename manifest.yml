@@ -27,16 +27,18 @@ contexts:
       '1.0.4':
       '1.0':
         version: 1.0.4
-      '1.1.4':
       '1.1.5':
+      '1.1.6':
       '1.1':
-        version: 1.1.5
+        version: 1.1.6
+      '1.2':
+        version: 1.2.0
       '1':
-        version: 1.1.5
+        version: 1.2.0
       'latest':
-        version: 1.1.5
+        version: 1.2.0
       'stable':
-        version: 1.1.5
+        version: 1.2.0
       'ci':
         ci: true
-        version: 1.1.5
+        version: 1.2.0
