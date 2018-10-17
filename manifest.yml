@@ -31,16 +31,16 @@ contexts:
       '1.1.6':
       '1.1':
         version: 1.1.6
-      '1.2.3':
       '1.2.4':
+      '1.2.6':
       '1.2':
-        version: 1.2.4
+        version: 1.2.6
       '1':
-        version: 1.2.4
+        version: 1.2.6
       'latest':
-        version: 1.2.4
+        version: 1.2.6
       'stable':
-        version: 1.2.4
+        version: 1.2.6
       'ci':
         ci: true
-        version: 1.2.4
+        version: 1.2.6
