@@ -1,13 +1,12 @@
 parameters:
   repository: aa8y/sbt
 templates:
-  build: docker build -t {{{repository}}}:{{tag}} --build-arg CI={{ci}} --build-arg SBT_VERSION={{version}} {{context}}
+  build: docker build -t {{{repository}}}:{{tag}} --build-arg SBT_VERSION={{version}} {{context}}
   push: docker push {{{repository}}}:{{tag}}
   test: docker run --rm {{{repository}}}:{{tag}} sbt {{{testCommand}}}
 contexts:
   .:
     parameters:
-      ci: false
       testCommand: sbtVersion
     tagKeys:
       - version
@@ -37,10 +36,9 @@ contexts:
         version: 1.2.8
       '1':
         version: 1.2.8
+      'ci':
+        version: 1.2.8
       'latest':
         version: 1.2.8
       'stable':
-        version: 1.2.8
-      'ci':
-        ci: true
         version: 1.2.8

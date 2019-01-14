@@ -2,8 +2,7 @@ FROM aa8y/core:jdk8
 
 MAINTAINER Arun Allamsetty <arun.allamsetty@gmail.com>
 
-ARG CI=false
-ARG SBT_VERSION=1.1.1
+ARG SBT_VERSION=1.2.8
 
 USER root
 RUN mkdir -p /opt/sbt/bin
@@ -29,14 +28,6 @@ RUN apk add --no-cache --update wget && \
     ln -s /opt/sbt/bin/sbt /bin/sbt && \
     apk del --purge wget && \
     rm -rf /var/cache/apk/*
-
-
-RUN if [[ $CI == "true" ]]; then \
-      apk add --no-cache --update \
-        git \
-        openssh && \
-      rm -rf /var/cache/apk/*; \
-    fi
 
 USER docker
 WORKDIR $APP_DIR

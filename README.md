@@ -6,9 +6,14 @@
 
 ## Tags
 
-The tags, `1.2.8`, `1.2`, `1`, `latest` and `stable`, all point to the same image. The full version tags like `0.12.4`, `0.13.17` and `1.0.4` point to the older releases of SBT. `0.12`, `0.13`, `1.0` and `1.1` (along with `1.2`) point to their respective latest minor releases. I am planning to maintain a latest version and a older release for a certain version category. This basically means that for 1.0 minor release, we will keep around 1.0.3 and 1.0.4 patch releases. For people who do not update their SBT versions often, I would recommend you use the minor release tags, rather than the full release tags with the patch version (meaning use `1.0` vs `1.0.4`), because those would always be available.
+The tags, `1.2.8`, `1.2`, `1` and `latest`, all point to the same image. The full version tags like `0.12.4`, `0.13.17` and `1.0.4` point to the older releases of SBT. `0.12`, `0.13`, `1.0` and `1.1` (along with `1.2`) point to their respective latest minor releases. I am planning to maintain a latest version and a older release for a certain version category. This basically means that for 1.0 minor release, we will keep around 1.0.3 and 1.0.4 patch releases. For people who do not update their SBT versions often, I would recommend you use the minor release tags, rather than the full release tags with the patch version (meaning use `1.0` vs `1.0.4`), because those would always be available.
 
-I've added a new `ci` tag which contains `git` and `ssh` to use with CircleCI 2.0. However, I expect to add these to all images and deprecate `ci`. At that point, it would be the same as `latest`.
+### `ci` and `stable` tags have been deprecated
+
+* `git` and `openssh` have been added to all based images negating the need to have a special `ci` tag. Due to this the `ci` tag _has been deprecated_.
+* Initially when I added the `stable` tag I was expecting to have Docker images for unstable/nightly SBT builds. Since I don't see that happening, the `stable` tag _has also been deprecated_.
+
+Both tags **will be removed** on **31st March 2019**.
 
 ## Usage
 
