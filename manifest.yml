@@ -18,10 +18,10 @@ contexts:
       '0.12':
         testCommand: sbt-version
         version: 0.12.4
-      '0.13.16':
       '0.13.17':
+      '0.13.18':
       '0.13':
-        version: 0.13.17
+        version: 0.13.18
       '1.0.3':
       '1.0.4':
       '1.0':
@@ -36,9 +36,5 @@ contexts:
         version: 1.2.8
       '1':
         version: 1.2.8
-      'ci':
-        version: 1.2.8
       'latest':
-        version: 1.2.8
-      'stable':
         version: 1.2.8
