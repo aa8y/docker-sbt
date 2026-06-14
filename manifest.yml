@@ -1,7 +1,7 @@
 parameters:
   repository: aa8y/sbt
 templates:
-  build: docker build -t {{{repository}}}:{{tag}} --build-arg SBT_VERSION={{version}} {{{context}}}
+  build: docker build -t {{{repository}}}:{{tag}} --build-arg JDK_VERSION={{jdk}} --build-arg SBT_VERSION={{version}} {{{context}}}
   push: docker push {{{repository}}}:{{tag}}
 structureTest:
   configs:
@@ -9,6 +9,8 @@ structureTest:
     - test/config/version.yaml
 contexts:
   .:
+    parameters:
+      jdk: '8'
     tagKeys:
       - version
     tags:
