@@ -1,10 +1,14 @@
 FROM aa8y/core:jdk8
 
-LABEL description="Docker image for SBT (https://www.scala-sbt.org/) based on Alpine Linux"
-LABEL maintainer="github.com/aa8y"
-LABEL version="1.0.0"
-
 ARG SBT_VERSION=1.2.8
+
+LABEL org.opencontainers.image.authors="https://github.com/aa8y" \
+      org.opencontainers.image.description="SBT image based on aa8y/core (Alpine)." \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.source="https://github.com/aa8y/docker-sbt" \
+      org.opencontainers.image.title="aa8y/sbt" \
+      org.opencontainers.image.url="https://hub.docker.com/r/aa8y/sbt" \
+      org.opencontainers.image.vendor="https://github.com/aa8y"
 
 USER root
 RUN mkdir -p /opt/sbt/bin
