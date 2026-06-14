@@ -1,0 +1,11 @@
+schemaVersion: "2.0.0"
+
+# Applied to SBT 0.13+ and 1.x tags. The task name became `sbtVersion`
+# (camelCase) in 0.13; older 0.12 tags use the dash-cased `sbt-version` and
+# are covered by version-old.yaml.
+
+commandTests:
+  - name: "sbt sbtVersion prints the SBT version"
+    command: "sbt"
+    args: ["sbtVersion"]
+    expectedOutput: ["[0-9]+\\.[0-9]+\\.[0-9]+"]

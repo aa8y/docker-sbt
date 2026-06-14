@@ -1,0 +1,13 @@
+schemaVersion: "2.0.0"
+
+# Shared assertions for every aa8y/sbt image: install layout and the /bin/sbt
+# symlink. The version-banner check lives in version.yaml / version-old.yaml
+# because the command name changed between SBT 0.12 and 0.13.
+
+fileExistenceTests:
+  - name: "/opt/sbt/bin/sbt exists"
+    path: "/opt/sbt/bin/sbt"
+    shouldExist: true
+  - name: "/bin/sbt symlink exists"
+    path: "/bin/sbt"
+    shouldExist: true
