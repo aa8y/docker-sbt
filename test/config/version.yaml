@@ -1,11 +1,12 @@
 schemaVersion: "2.0.0"
 
-# Applied to SBT 0.13+ and 1.x tags. The task name became `sbtVersion`
-# (camelCase) in 0.13; older 0.12 tags use the dash-cased `sbt-version` and
-# are covered by version-old.yaml.
+# `--allow-empty` is required from SBT 1.5+ when running tasks outside a
+# project. `--server` forces SBT 2.x to run in JVM mode instead of trying
+# to download the sbtn native client, which has no aarch64-pc-linux build
+# on the matching sbtn-dist release; it's a no-op on SBT 1.x.
 
 commandTests:
   - name: "sbt sbtVersion prints the SBT version"
     command: "sbt"
-    args: ["sbtVersion"]
+    args: ["--server", "--allow-empty", "sbtVersion"]
     expectedOutput: ["[0-9]+\\.[0-9]+\\.[0-9]+"]

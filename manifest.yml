@@ -10,43 +10,22 @@ structureTest:
 contexts:
   .:
     parameters:
-      jdk: '8'
+      jdk: '21'
     tagKeys:
       - version
     tags:
-      '0.12.2':
-        structureTest:
-          configs:
-            - test/config/common.yaml
-            - test/config/version-old.yaml
-      '0.12.4':
-        structureTest:
-          configs:
-            - test/config/common.yaml
-            - test/config/version-old.yaml
-      '0.12':
-        version: 0.12.4
-        structureTest:
-          configs:
-            - test/config/common.yaml
-            - test/config/version-old.yaml
-      '0.13.17':
-      '0.13.18':
-      '0.13':
-        version: 0.13.18
-      '1.0.3':
-      '1.0.4':
-      '1.0':
-        version: 1.0.4
-      '1.1.5':
-      '1.1.6':
-      '1.1':
-        version: 1.1.6
-      '1.2.7':
-      '1.2.8':
-      '1.2':
-        version: 1.2.8
+      '1.10.11':
+      '1.11.7':
+      '1.12.11':
+      '1.10':
+        version: 1.10.11
+      '1.11':
+        version: 1.11.7
+      '1.12':
+        version: 1.12.11
       '1':
-        version: 1.2.8
+        version: 1.12.11
+      '2':
+        version: 2.0.0-RC16
       'latest':
-        version: 1.2.8
+        version: 1.12.11
